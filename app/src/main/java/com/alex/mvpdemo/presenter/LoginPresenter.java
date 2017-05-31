@@ -21,7 +21,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     public LoginPresenter() {
     }
 
-
     /**
      * 登陆的逻辑
      */

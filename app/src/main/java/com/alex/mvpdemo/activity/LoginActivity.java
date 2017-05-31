@@ -19,10 +19,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     EditText username_et;
 
     @OnClick(R.id.login_tv)
-    public void login(){
+    public void login() {
         presenter.login();
     }
-
 
     @Override
     protected void afterCreate() {

@@ -22,12 +22,9 @@ public interface IView {
 
     App getApp();
 
-
-
     void finish();
 
     void intent2Activity(Class cls, Bundle bundle);
-
 
     void intentActivityForResult(Class cls, Bundle bundle, int requestData);
 }

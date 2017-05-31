@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Created by alex_mahao on 2016/8/3.
  */
-    public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivity implements IView {
+public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivity implements IView {
 
     @Inject
     public T presenter; // presenter对象
@@ -34,12 +34,10 @@ import butterknife.ButterKnife;
     @Inject
     protected App app; // 上下文对象
 
-
     private ActivityComponent dagger;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         // 动画切换
         // overridePendingTransition(R.anim.fade_in, R.anim.fade_out1);
 
@@ -78,10 +76,7 @@ import butterknife.ButterKnife;
     /**
      * 设置屏幕状态
      */
-    public void setScreenStatus(){
-
-    }
-
+    public void setScreenStatus() {}
 
     /**
      * 初始化一些配置
@@ -101,10 +96,9 @@ import butterknife.ButterKnife;
 
     @Override
     public void hideLoading() {
-        if(dialog!=null&&dialog.isShowing()){
+        if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
-
     }
 
     @Override
@@ -113,31 +107,27 @@ import butterknife.ButterKnife;
         Toast.makeText(BaseActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 
-
     @Override
     public App getApp() {
         return app;
     }
 
-
     /**
      * 获取注入对象
-     * @return
      */
-    public ActivityComponent getDagger(){
+    public ActivityComponent getDagger() {
         return dagger;
     }
 
-
     @Override
     public void intent2Activity(Class cls) {
-        Intent intent = new Intent(this,cls);
+        Intent intent = new Intent(this, cls);
         startActivity(intent);
     }
 
     @Override
-    public void intent2Activity(Class cls,Bundle budle) {
-        Intent intent = new Intent(this,cls);
+    public void intent2Activity(Class cls, Bundle budle) {
+        Intent intent = new Intent(this, cls);
         intent.putExtras(budle);
         startActivity(intent);
     }
@@ -145,19 +135,16 @@ import butterknife.ButterKnife;
     @Override
     public void finish() {
         super.finish();
-
         // 动画特效
         // overridePendingTransition(0, R.anim.fade_out);
     }
 
-
     @Override
     public void intentActivityForResult(Class cls, Bundle bundle, int requestData) {
-        Intent intent = new Intent(this,cls);
+        Intent intent = new Intent(this, cls);
         intent.putExtras(bundle);
-        startActivityForResult(intent,requestData);
+        startActivityForResult(intent, requestData);
     }
-
 
     @Override
     protected void onDestroy() {
@@ -165,6 +152,5 @@ import butterknife.ButterKnife;
         presenter.deteachView();
         presenter = null;
         AppManager.getAppManager().finishActivity(this);
-
     }
 }

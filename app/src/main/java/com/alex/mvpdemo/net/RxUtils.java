@@ -19,16 +19,12 @@ public class RxUtils {
 
     /**
      * RxJava 封装网络请求
-     *
      */
-    public static  void request(final Map<String,String> params, Subscriber<Result> subscriber,List<Subscription> list) {
-
+    public static void request(final Map<String, String> params, Subscriber<Result> subscriber, List<Subscription> list) {
         Subscription subscribe = Observable.create(new Observable.OnSubscribe<Result>() {
             @Override
             public void call(Subscriber<? super Result> subscriber) {
-
                 try {
-
                     // 正常的网络请求，返回result,将result 回传
                     Result result = new Result("1", "成功", "");
                     subscriber.onNext(result);
@@ -42,7 +38,5 @@ public class RxUtils {
                 .subscribe(subscriber);
 
         list.add(subscribe);
-
     }
-
 }
