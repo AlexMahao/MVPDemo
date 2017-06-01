@@ -40,7 +40,6 @@ public abstract class BaseActivity<T extends IPresenter> extends AppCompatActivi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         // 动画切换
         // overridePendingTransition(R.anim.fade_in, R.anim.fade_out1);
-
         super.onCreate(savedInstanceState);
 
         // 竖屏锁定

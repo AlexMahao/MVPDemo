@@ -21,7 +21,6 @@ public class ActivityModule {
     @PerActivity
     @Provides
     Dialog provideDialog(){
-
         return new Dialog(activity);
     }
 }

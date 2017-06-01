@@ -42,7 +42,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             public void onNext(Result o) {
                 if(o.getCode().equals("1")){
                     //登陆成功，跳转
-
                    // view.intent2Activity("XXXX".getClass());
                 }else{
                     // 根据不同的code 处理
